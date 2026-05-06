@@ -3,10 +3,37 @@
 <head>
   <title>vSTICS Poster Media</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 24px; background: #fafafa; text-align: center; }
-    h1 { margin-bottom: 35px; font-size: 34px; }
-    h2 { margin-top: 55px; font-size: 24px; }
-    h3 { margin-top: 28px; font-size: 18px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 24px;
+      background: #fafafa;
+      text-align: center;
+      color: #111;
+    }
+
+    h1 {
+      margin-bottom: 35px;
+      font-size: 34px;
+    }
+
+    h2 {
+      margin-top: 60px;
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-top: 28px;
+      font-size: 18px;
+    }
+
+    p {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto 22px auto;
+      text-align: justify;
+      line-height: 1.55;
+      font-size: 15px;
+    }
 
     img {
       width: 92%;
@@ -24,6 +51,10 @@
       border-radius: 10px;
       margin-bottom: 28px;
     }
+
+    .caption-title {
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -32,54 +63,76 @@
 <h1>vSTICS Poster Visualizations</h1>
 
 <h2>1. Flow Simulation</h2>
-<h3>Intensity Rendering</h3>
+<p><span class="caption-title">Figure 1. vSTICS simulation, correlation analysis, and flow extraction.</span> Simulated intensity volumes were generated using a Gaussian PSF with widths σx = 1.5 px, σy = 1.5 px, and σz = 7.5 px, a particle density of 0.0024 particles/pixel³, and a 128 × 128 × 128 pixel volume. A uniform flow of 1 µm/s was seeded along the x-direction.</p>
+
+<h3>(A) Simulated Intensity Volume</h3>
+<p>The intensity data are displayed as a maximum-intensity projection of the simulated 3D volume.</p>
 <img src="Flow/IntensityRendering.gif">
 
-<h3>Autocorrelation Function</h3>
+<h3>(B) Spatiotemporal Autocorrelation Function</h3>
+<p>The volumetric autocorrelation function was calculated using 64 × 64 × 64 pixel ROIs with a spatial shift of 4 pixels and TOI windows of 8 frames shifted by 2 frames. The correlation volume was cropped around the origin and fit with an asymmetric 3D Gaussian function.</p>
 <img src="Flow/ACFImageAnimation.gif">
 
-<h3>Flow Map</h3>
+<h3>(C) Flow Extraction</h3>
+<p>Flow was extracted from the fitted Gaussian peak displacements. Peak movement across time was fit with a linear function, and the resulting velocity field was visualized as a color-coded quiver plot.</p>
 <img src="Flow/quiverStack.gif">
 
-<h3>Density Map</h3>
+<h3>Recovered Density Map</h3>
+<p>The local particle density was recovered from the temporal autocorrelation amplitude and rendered spatially across the simulated volume.</p>
 <img src="Flow/DensityImageStack.gif">
 
 
 <h2>2. Diffusion and Flow Simulation</h2>
-<h3>Intensity Rendering</h3>
+<p><span class="caption-title">Figures 2 and 3. vSTICS simulation, diffusion extraction, and density recovery.</span> Simulated intensity volumes were generated using a Gaussian PSF with widths σx = 1.5 px, σy = 1.5 px, and σz = 7.5 px, a particle density of 0.0024 particles/pixel³, and a 128 × 128 × 128 pixel volume. Particles diffused with D = 0.001 µm²/s.</p>
+
+<h3>(A) Simulated Intensity Volume</h3>
+<p>The simulated 3D intensity data are displayed as a maximum-intensity projection.</p>
 <img src="Diffusion%20and%20Flow/IntesnityRendering.gif">
 
-<h3>Autocorrelation Function Views</h3>
+<h3>(B) Spatiotemporal Autocorrelation Function Views</h3>
+<p>The volumetric autocorrelation function was calculated using 64 × 64 × 64 pixel ROIs with a spatial shift of 4 pixels and TOI windows of 8 frames shifted by 2 frames. The correlation peak was fit with an asymmetric 3D Gaussian model.</p>
 <img src="Diffusion%20and%20Flow/ACF_home.gif">
 <img src="Diffusion%20and%20Flow/ACF_xy.gif">
 <img src="Diffusion%20and%20Flow/ACF_xz.gif">
 
-<h3>Flow Map</h3>
+<h3>(C) Flow Extraction</h3>
+<p>The fitted Gaussian peak displacements were used to recover the local velocity field, visualized as a color-coded quiver plot.</p>
 <img src="Diffusion%20and%20Flow/quiverStack.gif">
 
-<h3>Density Map</h3>
+<h3>(D) Density Recovery</h3>
+<p>Particle density was recovered from the zero-lag temporal autocorrelation amplitude, normalized by the ROI volume and effective PSF volume, then rendered as a 3D spatial density distribution.</p>
 <img src="Diffusion%20and%20Flow/DensityImageStack.gif">
 
-<h3>Diffusion Map</h3>
+<h3>(E) Diffusion Recovery</h3>
+<p>Local diffusion coefficients were extracted from the temporal autocorrelation decay and visualized as a volumetric rendering of recovered D values.</p>
 <img src="Diffusion%20and%20Flow/DiffusionImageStack.gif">
 
 
 <h2>3. MitoTracker Green Mitochondrial Labelling</h2>
-<h3>Intensity / Gaussian Rendering</h3>
+<p><span class="caption-title">Figure 5. 3D mapping of mitochondrial transport dynamics in a growing <i>Camellia japonica</i> pollen tube.</span> Mitochondria were labelled with MitoTracker Green FM and analyzed by vSTICS. Sampling used 64 × 64 pixel windows in x-y and 16 pixels in z, shifted by 5 pixels laterally and 2 pixels axially, with a TOI of 4 frames shifted by 1 frame.</p>
+
+<h3>(A) Mitochondrial Fluorescence Rendering</h3>
+<p>Volumetric rendering of mitochondrial fluorescence at the pollen tube tip.</p>
 <img src="MitoTracker%20Green/GaussImages.gif">
 
-<h3>Flow Map</h3>
+<h3>(B) 3D Velocity Field</h3>
+<p>Corresponding 3D velocity field displayed as a color-coded quiver plot overlaid on the reconstructed pollen tube geometry, revealing mitochondrial motion relative to the pollen tube growth axis.</p>
 <img src="MitoTracker%20Green/VelocityVectorMap.gif">
 
 
 <h2>4. FM1-43 Vesicle Labelling</h2>
-<h3>Intensity Rendering</h3>
+<p><span class="caption-title">Figures 6 and 7. Vesicle organization and vSTICS analysis of FM1-43-labelled vesicle dynamics.</span> A growing <i>Camellia japonica</i> pollen tube labelled with FM1-43 was imaged over a 55 × 55 × 10 µm³ volume at 0.5 s per volume. vSTICS analysis used the same sampling parameters as the mitochondrial dataset.</p>
+
+<h3>(A) FM1-43 Intensity Rendering</h3>
+<p>Volumetric rendering of FM1-43 fluorescence in the pollen tube apex, showing vesicle-associated fluorescence within the apical region.</p>
 <img src="FM143/IntensityRendering-2.gif">
 
-<h3>Flow Map</h3>
+<h3>(B) 3D Velocity Field</h3>
+<p>Three-dimensional velocity vector field obtained from vSTICS analysis of the FM1-43 signal, displayed as a color-coded quiver plot over the reconstructed apical volume.</p>
 <img src="FM143/Velocity.gif">
 
-<h3>Density Rendering</h3>
+<h3>(C) Density Rendering</h3>
+<p>Local particle densities were recovered from the zero-lag temporal autocorrelation amplitude and rendered across the pollen tube apex.</p>
 <img class="fm-density" src="FM143/DensityRenderings.gif">
 
 </body>
